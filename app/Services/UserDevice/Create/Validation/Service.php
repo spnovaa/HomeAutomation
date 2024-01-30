@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Services\Device\Update\Validation;
+namespace App\Services\UserDevice\Create\Validation;
 
 use App\HelperClasses\Messages\ServiceMessage;
-use App\Models\Device;
-use App\Services\Device\Update\Validation\Checkers\SampleChecker;
+use App\Models\UserDevices;
+use App\Services\UserDevice\Create\Validation\Checkers\SampleChecker;
 use Throwable;
 
 class Service
@@ -27,10 +27,10 @@ class Service
 
 
     /**
-     * @param Device $device
+     * @param UserDevices $device
      * @return ServiceMessage
      */
-    public function validate(Device $device): ServiceMessage
+    public function validate(UserDevices $device): ServiceMessage
     {
         try {
             $validator_instance_list = $this->getValidatorInstanceList();

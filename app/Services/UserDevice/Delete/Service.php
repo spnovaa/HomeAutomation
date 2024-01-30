@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Services\Device\Delete;
+namespace App\Services\UserDevice\Delete;
 use App\HelperClasses\Messages\ServiceMessage;
-use App\Models\Device;
-use App\Services\Device\Delete\Validation\Service as ValidationService;
+use App\Models\UserDevices;
+use App\Services\UserDevice\Delete\Validation\Service as ValidationService;
 class Service
 {
     private $validation_service;
@@ -12,7 +12,7 @@ class Service
         $this->validation_service = $validation_service;
     }
 
-    public function delete(Device $device)
+    public function delete(UserDevices $device)
     {
         $validation_res = $this->validation_service->validate($device);
         if ($validation_res->isErrorType())
@@ -20,7 +20,7 @@ class Service
 
         $device->delete();
 
-        return ServiceMessage::Success('DEVICE_DELETED_SUCCESSFULLY');
+        return ServiceMessage::Success('USER_DEVICE_DELETED_SUCCESSFULLY');
     }
 
 }
