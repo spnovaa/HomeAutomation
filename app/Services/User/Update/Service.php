@@ -18,7 +18,12 @@ class Service
         if ($validation_res->isErrorType())
             return $validation_res;
 
-        //TODO: implementations e.g. using pipeline design pattern
+        if ($user->isDirty()){
+            $old = User::find($user['U_Id']);
+            unset($user['U_Id']);
+            User::where('U_Id', $old['U_Id'])
+                ->update($user->getAttributes());
+        }
 
         return ServiceMessage::Success('USER_UPDATED_SUCCESSFULLY');
     }

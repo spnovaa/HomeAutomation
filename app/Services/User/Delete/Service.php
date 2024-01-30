@@ -18,7 +18,7 @@ class Service
         if ($validation_res->isErrorType())
             return $validation_res;
 
-        //TODO: implementations e.g. using pipeline design pattern
+        $user->delete();
 
         return ServiceMessage::Success('USER_DELETED_SUCCESSFULLY');
     }
