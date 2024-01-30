@@ -4,6 +4,7 @@ namespace App\Services\UserDevice\Create\Validation;
 
 use App\HelperClasses\Messages\ServiceMessage;
 use App\Models\UserDevices;
+use App\Services\UserDevice\Create\Validation\Checkers\SampleChecker;
 use Throwable;
 
 class Service
@@ -21,7 +22,7 @@ class Service
     // element, and they run from bottom to the top. If you intend to add extra checker, you might
     // create a new checker class and add it to the list bellow.
     private array $validator_list = [
-
+        SampleChecker::class
     ];
 
 

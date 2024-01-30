@@ -12,7 +12,7 @@ class Service
     public function __construct()
     {
         $this->messages = array_merge($this->messages, [
-            SampleChecker::class
+
         ]);
     }
 
@@ -22,7 +22,7 @@ class Service
     // element, and they run from bottom to the top. If you intend to add extra checker, you might
     // create a new checker class and add it to the list bellow.
     private array $validator_list = [
-
+        SampleChecker::class
     ];
 
 
