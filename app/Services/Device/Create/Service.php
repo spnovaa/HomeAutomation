@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Services\Device\Create;
+use App\HelperClasses\Messages\ServiceMessage;
 use App\Models\Device;
 use App\Services\Device\Create\Validation\Service as ValidationService;
 class Service
@@ -14,6 +15,14 @@ class Service
     public function create(Device $device)
     {
         $validation_res = $this->validation_service->validate($device);
+        if ($validation_res->isErrorType())
+            return $validation_res;
+
+        if (isset($device['D_Id'])) unset($device['D_Id']);
+
+        Device::create($device->getAttributes());
+
+        return ServiceMessage::Success('DEVICE_CREATED_SUCCESSFULLY');
     }
 
 }

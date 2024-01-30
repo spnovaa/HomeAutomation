@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Services\Device\Update\Validation;
+namespace App\Services\UserDevice\Create\Validation;
 
 use App\HelperClasses\Messages\ServiceMessage;
-use App\Models\Device;
-use App\Services\Device\Update\Validation\Checkers\SampleChecker;
+use App\Models\UserDevices;
 use Throwable;
 
 class Service
@@ -22,15 +21,15 @@ class Service
     // element, and they run from bottom to the top. If you intend to add extra checker, you might
     // create a new checker class and add it to the list bellow.
     private array $validator_list = [
-        SampleChecker::class
+
     ];
 
 
     /**
-     * @param Device $device
+     * @param UserDevices $device
      * @return ServiceMessage
      */
-    public function validate(Device $device): ServiceMessage
+    public function validate(UserDevices $device): ServiceMessage
     {
         try {
             $validator_instance_list = $this->getValidatorInstanceList();

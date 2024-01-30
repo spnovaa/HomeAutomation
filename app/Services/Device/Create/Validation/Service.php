@@ -4,6 +4,7 @@ namespace App\Services\Device\Create\Validation;
 
 use App\HelperClasses\Messages\ServiceMessage;
 use App\Models\Device;
+use App\Services\Device\Create\Validation\Checkers\SampleChecker;
 use Throwable;
 
 class Service
@@ -11,7 +12,7 @@ class Service
     public function __construct()
     {
         $this->messages = array_merge($this->messages, [
-
+            SampleChecker::class
         ]);
     }
 
