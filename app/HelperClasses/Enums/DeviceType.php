@@ -1,6 +1,6 @@
 <?php
 
-namespace App\HelperClasses;
+namespace App\HelperClasses\Enums;
 
 abstract class DeviceType
 {
