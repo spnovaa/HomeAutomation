@@ -11,9 +11,10 @@ class Service
         $this->validation_service = $validation_service;
     }
 
-    public function create(Log $log)
+    public function update(Log $log)
     {
         $validation_res = $this->validation_service->validate($log);
+        return $validation_res;
     }
 
 }
