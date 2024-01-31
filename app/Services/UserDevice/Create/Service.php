@@ -18,9 +18,12 @@ class Service
         if ($validation_res->isErrorType())
             return $validation_res;
 
-        UserDevices::create($device->getAttributes());
+        $id = UserDevices::create($device->getAttributes())->UD_Id;
 
-        return ServiceMessage::Success('USER_DEVICE_CREATED_SUCCESSFULLY');
+        $res = ServiceMessage::Success('USER_DEVICE_CREATED_SUCCESSFULLY');
+        $res->setExtraInfo($id);
+
+        return $res;
     }
 
 }
