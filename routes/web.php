@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Users\UsersController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,4 +13,5 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+Route::post('users/register', [UsersController::class, 'register']);
+Route::resource('users', UsersController::class);
