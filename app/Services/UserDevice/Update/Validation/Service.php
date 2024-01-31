@@ -5,6 +5,7 @@ namespace App\Services\UserDevice\Update\Validation;
 use App\HelperClasses\Messages\ServiceMessage;
 use App\Models\UserDevices;
 use App\Services\UserDevice\Update\Validation\Checkers\SampleChecker;
+use App\Services\UserDevice\Update\Validation\Checkers\TemperatureChecker;
 use Throwable;
 
 class Service
@@ -13,7 +14,8 @@ class Service
     public function __construct()
     {
         $this->messages =  [
-
+            'USER_DEVICE_TEMPERATURE_OVERFLOW' => 'دمای مورد نظر از حد مجاز بیشتر است',
+            'USER_DEVICE_TEMPERATURE_UNDERFLOW' => 'دمای مورد نظر از حد مجاز کمتر است'
         ];
     }
 
@@ -23,7 +25,8 @@ class Service
     // element, and they run from bottom to the top. If you intend to add extra checker, you might
     // create a new checker class and add it to the list bellow.
     private array $validator_list = [
-        SampleChecker::class
+        SampleChecker::class,
+        TemperatureChecker::class,
     ];
 
 

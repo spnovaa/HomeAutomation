@@ -3,20 +3,18 @@
 namespace App\Services\UserDevice;
 
 
-use App\Models\UserDevices;
-
 abstract class Checker
 {
     protected ?Checker $successor;
 
-    abstract public function check(UserDevices $device);
+    abstract public function check($device);
 
-    public function succeedWith(Checker $successor)
+    public function succeedWith($successor)
     {
         $this->successor = $successor;
     }
 
-    public function next(UserDevices $device)
+    public function next($device)
     {
         if (isset($this->successor)) {
             $this->successor->check($device);
