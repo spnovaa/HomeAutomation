@@ -18,7 +18,7 @@ class Service
         if ($validation_res->isErrorType())
             return $validation_res;
 
-        if (isset($user['U_Id'])) unset($user['U_Id']);
+        unset($user['U_Id']);
         User::create($user->getAttributes());
 
         return ServiceMessage::Success('USER_CREATED_SUCCESSFULLY');

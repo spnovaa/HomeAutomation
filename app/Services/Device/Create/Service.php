@@ -18,7 +18,7 @@ class Service
         if ($validation_res->isErrorType())
             return $validation_res;
 
-        if (isset($device['D_Id'])) unset($device['D_Id']);
+        unset($device['D_Id']);
 
         Device::create($device->getAttributes());
 

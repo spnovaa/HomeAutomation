@@ -37,10 +37,21 @@ class Service
 
     public function update(User $user)
     {
-        $res = $this->update_service->delete($user);
+        $res = $this->update_service->update($user);
 
         return $res;
 
+    }
+
+    public function index()
+    {
+        return User::all();
+
+    }
+
+    public function show($id)
+    {
+        return User::where('U_Id', $id)->with('account')->first();
     }
 
 }

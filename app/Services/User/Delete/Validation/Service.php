@@ -9,11 +9,12 @@ use Throwable;
 
 class Service
 {
+    private $messages;
     public function __construct()
     {
-        $this->messages = array_merge($this->messages, [
+        $this->messages =  [
 
-        ]);
+        ];
     }
 
 
