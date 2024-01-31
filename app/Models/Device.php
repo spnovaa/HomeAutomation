@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class Device extends Model
 {
     protected $table = 'Devices';
+    //temporarily
+    protected $guarded = [];
     protected $primaryKey = 'D_Id';
     public const CREATED_AT = 'D_CreatedAt';
     public const UPDATED_AT = 'D_UpdatedAt';
