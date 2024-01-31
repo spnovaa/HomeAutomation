@@ -20,9 +20,12 @@ class Service
 
         unset($device['D_Id']);
 
-        Device::create($device->getAttributes());
+        $id = Device::create($device->getAttributes())->D_Id;
 
-        return ServiceMessage::Success('DEVICE_CREATED_SUCCESSFULLY');
+        $res =  ServiceMessage::Success('DEVICE_CREATED_SUCCESSFULLY');
+        $res->setExtraInfo($id);
+
+        return $res;
     }
 
 }

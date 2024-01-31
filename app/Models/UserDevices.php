@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class UserDevices extends Model
 {
     protected $table = 'UserDevices';
+    // temporarily
+    protected $guarded = [];
     protected $primaryKey = 'UD_Id';
     public const CREATED_AT = 'UD_CreatedAt';
     public const UPDATED_AT = 'UD_UpdatedAt';
