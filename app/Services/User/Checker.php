@@ -10,17 +10,17 @@ abstract class Checker
 {
     protected ?Checker $successor;
 
-    abstract public function check(User $user);
+    abstract public function check($obj);
 
     public function succeedWith(Checker $successor)
     {
         $this->successor = $successor;
     }
 
-    public function next(User $user)
+    public function next($obj)
     {
         if (isset($this->successor)) {
-            $this->successor->check($user);
+            $this->successor->check($obj);
         }
     }
 }

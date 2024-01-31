@@ -42,6 +42,7 @@ class UsersController extends Controller
             Auth::login($user);
             return response()->json([
                 'message' => 'ثبت نام با موفقیت انجام شد',
+                'id' => $res->getExtraInfo(),
                 'code' => 'success'
             ], 200);
         }

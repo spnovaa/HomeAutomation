@@ -7,7 +7,7 @@ use App\Services\User\Checker;
 
 class SampleChecker extends Checker
 {
-    public function check(User $user)
+    public function check($user)
     {
         // sample checker. The real checking process may be implemented here.
         if (false)

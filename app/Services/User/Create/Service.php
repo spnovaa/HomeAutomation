@@ -20,8 +20,12 @@ class Service
 
         unset($user['U_Id']);
         User::create($user->getAttributes());
+        $id = User::where('U_UsrName', $user['U_UsrName'])->value('U_Id');
 
-        return ServiceMessage::Success('USER_CREATED_SUCCESSFULLY');
+        $res = ServiceMessage::Success('USER_CREATED_SUCCESSFULLY');
+        $res->setExtraInfo($id);
+
+        return $res;
     }
 
 }
